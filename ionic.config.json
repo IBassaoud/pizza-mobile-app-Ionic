@@ -1,0 +1,7 @@
+{
+  "name": "pizza_app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
