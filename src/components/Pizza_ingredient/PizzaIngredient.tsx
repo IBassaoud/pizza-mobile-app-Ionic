@@ -9,7 +9,7 @@ import {
 import { Icon } from "@iconify/react";
 import "./PizzaIngredient.css";
 
-function PizzaIngredient() {
+function PizzaIngredient(props:any) {
   return (
     <IonAccordionGroup>
       {/* VIANDES */}

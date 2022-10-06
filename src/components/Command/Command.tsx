@@ -1,6 +1,4 @@
-import { useContext, useRef, useState } from "react";
 import {
-  IonContent,
   IonHeader,
   IonInput,
   IonItem,
@@ -8,21 +6,18 @@ import {
   IonButton,
 } from "@ionic/react";
 
-import { ContentContext } from "../../contexts/Content";
-
 import "./Command.css";
 
-function Command() {
-    const context = useContext(ContentContext)
-    let size = useState(context.data.size)
-    
+function Command(props:any) {
+    let size = props.data.size;
+    let sauce = props.data.sauce;
   return (
     <div className="command-container">
       <IonHeader className="header-command">Votre commande :</IonHeader>
 
       <IonItem lines="full" class="item-has-focus ion-touched">
         <IonLabel position="stacked">Sauce</IonLabel>
-        <IonInput disabled={true}>Base Tomate</IonInput>
+        <IonInput disabled={true}>{sauce}</IonInput>
       </IonItem>
 
       <IonItem lines="full" class="item-has-focus ion-touched">

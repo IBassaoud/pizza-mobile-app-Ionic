@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {
   IonContent,
   IonHeader,
@@ -7,7 +7,6 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import "./Home.css";
-import { ContentContext } from "../contexts/Content";
 
 // Import icons
 import { Icon } from "@iconify/react";
@@ -15,39 +14,66 @@ import PizzaType from "../components/Pizza_type/PizzaType";
 import PizzaSize from "../components/Pizza_size/PizzaSize";
 import PizzaIngredient from "../components/Pizza_ingredient/PizzaIngredient";
 import Command from "../components/Command/Command";
+import { RangeValue } from "@ionic/core";
 
 const Home: React.FC = () => {
   const title = "Pizza";
 
+  // forceUpdate hook
+  const [, updateState] = useState<any>();
+  const handleForceupdateMethod = useCallback(() => updateState({}), []);
+
+  // data hook
   const [data, setData] = useState<any>({
-    name: "",
+    sauce: null,
     size: 20,
-    description: "Ma description",
-    content: "Mon content de fou furieux",
+    viandes: [],
+    legumes: [],
+    fromages: [],
+    boissons: [],
+    total: 0,
   });
 
-  const changeName = (name: string) => {
+  const changeSauce = (sauce: string) => {
     let newData = data;
-    
-    handleName(newData);
+    newData.sauce = sauce;
+    setData(newData);
+    handleForceupdateMethod();
   };
 
-  const changeSize = (size: string) => {
+  const changeSize = (size: RangeValue) => {
     let newData = data;
     newData.size = size;
-    handleSize(newData);
+    setData(newData);
+    handleForceupdateMethod();
   };
 
-  const handleSize = (changedData: any) => {
-    setData(changedData);
-    console.log(data);
-    
+  const changeViandes = (viande: string) => {
+    let newData = data;
+    newData.viandes.push(viande);
+    setData(newData);
+    handleForceupdateMethod();
   };
 
-  const handleName = (changedData: any) => {
-    setData(changedData);
-    console.log(data);
-    
+  const changeLegumes = (legume: string) => {
+    let newData = data;
+    newData.legumes.push(legume);
+    setData(newData);
+    handleForceupdateMethod();
+  };
+
+  const changeFromages = (fromage: string) => {
+    let newData = data;
+    newData.fromages.push(fromage);
+    setData(newData);
+    handleForceupdateMethod();
+  };
+
+  const changeBoissons = (boisson: string) => {
+    let newData = data;
+    newData.boissons.push(boisson);
+    setData(newData);
+    handleForceupdateMethod();
   };
 
   return (
@@ -60,27 +86,23 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <ContentContext.Provider value={{ data, changeName, changeSize }}>
-        <IonContent fullscreen>
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">
-                {title} <Icon icon="emojione:pizza" />
-              </IonTitle>
-            </IonToolbar>
-          </IonHeader>
+      <IonContent fullscreen>
+        <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">
+              {title} <Icon icon="emojione:pizza" />
+            </IonTitle>
+          </IonToolbar>
+        </IonHeader>
 
-          <PizzaType />
+        <PizzaType onChangeType={changeSauce}/>
 
-          <PizzaSize />
+        <PizzaSize onChangeSize={changeSize} />
 
-          <PizzaIngredient />
+        <PizzaIngredient onChangeViande={changeViandes} onChangeLegume={changeLegumes} onChangeFromage={changeFromages} onChangeBoisson={changeBoissons}/>
 
-          <Command />
-
-          {/* <ButtonCommand /> */}
-        </IonContent>
-      </ContentContext.Provider>
+        <Command data={data} />
+      </IonContent>
     </IonPage>
   );
 };
