@@ -1,0 +1,26 @@
+ion-item {
+    --highlight-height: 2px;
+    --highlight-color-focused: #43e7f3;
+    --highlight-color-valid: #6f58d8;
+    --highlight-color-valid: #6f58d8;
+    --highlight-color-invalid: #ff46be;
+  }
+
+  .command-container {
+    position: relative;
+    top:12px;
+  } 
+
+  .header-command {
+    padding-left:1em;
+    padding-bottom: 0.5em;
+
+  }
+
+  .bouton_item {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
