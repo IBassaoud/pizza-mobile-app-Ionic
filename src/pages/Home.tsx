@@ -48,30 +48,66 @@ const Home: React.FC = () => {
     handleForceupdateMethod();
   };
 
-  const changeViandes = (viande: string) => {
+  const changeViandes = (viande: any) => {
     let newData = data;
-    newData.viandes.push(viande);
+        
+    if (viande) {
+      const index = newData.viandes.indexOf(viande);
+      if (index > -1) {
+        newData.viandes.splice(index, 1);
+      } else {
+        newData.viandes.push(viande);
+      }
+    }
+    console.log(newData.viandes);
     setData(newData);
     handleForceupdateMethod();
   };
 
   const changeLegumes = (legume: string) => {
     let newData = data;
-    newData.legumes.push(legume);
+
+    if (legume) {
+      const index = newData.legumes.indexOf(legume);
+      if (index > -1) {
+        newData.legumes.splice(index, 1);
+      } else {
+        newData.legumes.push(legume);
+      }
+    }
+    console.log(newData.legumes);
     setData(newData);
     handleForceupdateMethod();
   };
 
   const changeFromages = (fromage: string) => {
     let newData = data;
-    newData.fromages.push(fromage);
+
+    if (fromage) {
+      const index = newData.fromages.indexOf(fromage);
+      if (index > -1) {
+        newData.fromages.splice(index, 1);
+      } else {
+        newData.fromages.push(fromage);
+      }
+    }
+    console.log(newData.fromages);
     setData(newData);
     handleForceupdateMethod();
   };
 
   const changeBoissons = (boisson: string) => {
     let newData = data;
-    newData.boissons.push(boisson);
+
+    if (boisson) {
+      const index = newData.boissons.indexOf(boisson);
+      if (index > -1) {
+        newData.boissons.splice(index, 1);
+      } else {
+        newData.boissons.push(boisson);
+      }
+    }
+    console.log(newData.boissons);
     setData(newData);
     handleForceupdateMethod();
   };
@@ -95,11 +131,16 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <PizzaType onChangeType={changeSauce}/>
+        <PizzaType onChangeType={changeSauce} />
 
         <PizzaSize onChangeSize={changeSize} />
 
-        <PizzaIngredient onChangeViande={changeViandes} onChangeLegume={changeLegumes} onChangeFromage={changeFromages} onChangeBoisson={changeBoissons}/>
+        <PizzaIngredient
+          onChangeViande={changeViandes}
+          onChangeLegume={changeLegumes}
+          onChangeFromage={changeFromages}
+          onChangeBoisson={changeBoissons}
+        />
 
         <Command data={data} />
       </IonContent>

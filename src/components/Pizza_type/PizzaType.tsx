@@ -7,8 +7,8 @@ const changeSauce = props.onChangeType;
     console.log(sauce.title);
     let newSauce = sauce.title;
     changeSauce(newSauce);
-    
   } 
+  
   return (
     <IonSegment value="default">
       <IonSegmentButton className="button_pizza-type" title="Sauce Tomate" onClick={(detail) => handleTypeChange(detail.target)}>
