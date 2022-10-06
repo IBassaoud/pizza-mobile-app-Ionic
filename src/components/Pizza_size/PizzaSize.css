@@ -1,0 +1,65 @@
+/* .range-label {
+    font-size: 5em;
+    padding-left: 20px;
+    font-weight: bolder;
+    font-family: "Dancing script";
+} */
+
+ion-range {
+  
+  --bar-background: #a2d2ff;
+  --bar-background-active: #bde0fe;
+  --bar-height: .5em;
+  --bar-border-radius: 8px;
+  --knob-background: #ffc8dd;
+  --knob-size: 1.5em;
+  --pin-background: #ffafcc;
+  --pin-color: #fff;
+}
+
+ion-range::part(tick) {
+    background: #a2d2ff;
+  }
+  
+  ion-range::part(tick-active) {
+    background: #bde0fe;
+  }
+  
+  ion-range::part(pin) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: #ffafcc;
+    color: #fff;
+  
+    border-radius: 50%;
+    transform: scale(1.01);  
+    top: -20px;
+  
+    min-width: 28px;
+    height: 28px;
+    transition: transform 120ms ease, background 120ms ease;
+  }
+  
+  ion-range::part(pin)::before {
+    content: none;
+  }
+  
+  ion-range::part(knob) {
+    background: #ffc8dd;
+  }
+  
+  ion-range::part(bar) {
+    background: #a2d2ff;
+  }
+  
+  ion-range::part(bar-active) {
+    background: #bde0fe;
+  }
+
+  .range-label {
+    padding-left:1em;
+    font-size: 1em;
+    font-weight: bold;
+  }

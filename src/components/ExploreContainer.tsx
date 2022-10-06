@@ -1,12 +1,19 @@
 import './ExploreContainer.css';
+import { IonLabel, IonSegment, IonSegmentButton } from '@ionic/react';
 
 interface ContainerProps { }
 
 const ExploreContainer: React.FC<ContainerProps> = () => {
   return (
     <div className="container">
-      <strong>Ready to create an app?</strong>
-      <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+     <IonSegment value="default">
+        <IonSegmentButton value="default">
+          <IonLabel>Base Blanche</IonLabel>
+        </IonSegmentButton>
+        <IonSegmentButton value="segment">
+          <IonLabel>Base rouge</IonLabel>
+        </IonSegmentButton>
+      </IonSegment>
     </div>
   );
 };

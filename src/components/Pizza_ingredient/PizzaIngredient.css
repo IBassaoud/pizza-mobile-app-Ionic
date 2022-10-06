@@ -1,0 +1,21 @@
+ion-list {
+    position: relative;
+    top:20px;
+    font-size: 32px;
+}
+
+.item-ingredient {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left:0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2.3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
