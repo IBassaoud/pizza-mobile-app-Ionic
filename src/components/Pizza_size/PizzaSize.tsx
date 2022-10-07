@@ -4,12 +4,7 @@ import './PizzaSize.css';
 
 function PizzaSize(props:any) {
   // Get the function change size passed from the parent component
-  const onChangeSize = props.onChangeSize;
-
-  // Size change handler
-  const handleSizeChange = (size:RangeValue) => {
-    onChangeSize(size);
-  }
+  const handleSizeChange = props.onChangeSize;
 
   return (
   <>

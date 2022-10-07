@@ -15,6 +15,7 @@ import PizzaSize from "../components/Pizza_size/PizzaSize";
 import PizzaIngredient from "../components/Pizza_ingredient/PizzaIngredient";
 import Command from "../components/Command/Command";
 import { RangeValue } from "@ionic/core";
+import { number } from "prop-types";
 
 const Home: React.FC = () => {
   const title = "Pizza";
@@ -23,9 +24,20 @@ const Home: React.FC = () => {
   const [, updateState] = useState<any>();
   const handleForceupdateMethod = useCallback(() => updateState({}), []);
 
+  // Interface
+  interface DATA {
+    sauce: string;
+    size: RangeValue;
+    meats: any;
+    vegetables: any;
+    cheeses: any;
+    drinks: any;
+    total?: number;
+  }
+
   // data hook
-  const [data, setData] = useState<any>({
-    sauce: null,
+  const [data, setData] = useState<DATA>({
+    sauce: "",
     size: 20,
     meats: [],
     vegetables: [],
@@ -35,15 +47,18 @@ const Home: React.FC = () => {
   });
 
   // Method to change the sauce at the user's choice
-  const changeSauce = (sauce: string) => {
+  const handleSauce = (sauce: any) => {
     let newData = data;
-    newData.sauce = sauce;
+    console.log(sauce);
+    console.log(sauce.value);
+
+    newData.sauce = sauce.title;
     setData(newData);
     handleForceupdateMethod();
   };
 
   // Method to change the size at the user's choice
-  const changeSize = (size: RangeValue) => {
+  const handleSize = (size: RangeValue) => {
     let newData = data;
     newData.size = size;
     setData(newData);
@@ -161,9 +176,9 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        <PizzaSauce onChangeSauce={changeSauce} />
+        <PizzaSauce onChangeSauce={handleSauce} />
 
-        <PizzaSize onChangeSize={changeSize} />
+        <PizzaSize onChangeSize={handleSize} />
 
         <PizzaIngredient
           onChangeMeat={changeMeats}
