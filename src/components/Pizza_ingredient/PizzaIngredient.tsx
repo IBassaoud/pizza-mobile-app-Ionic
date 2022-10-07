@@ -10,33 +10,10 @@ import "./PizzaIngredient.css";
 
 function PizzaIngredient(props: any) {
   // Get all the functions passed from the parent component managing Meats, Vegatables,Cheeses and Drinks changes based on user's interactive choices
-  const changeMeats = props.onChangeMeat;
-  const changeVegetables = props.onChangeVegetable;
-  const changeCheeses = props.onChangeCheese;
-  const changeDrinks = props.onChangeDrink;
-
-  // Meat change handler
-  const handleMeatsChange = (meat: any) => {
-    let newMeat = meat.title;
-    changeMeats(newMeat);
-  };
-
-  // Vegetable change handler
-  const handleVegetablesChange = (vegetable: any) => {
-    let newVegetable = vegetable.title;
-    changeVegetables(newVegetable);
-  };
-
-  // Cheese change handler
-  const handleCheesesChange = (cheese: any) => {
-    let newCheese = cheese.title;
-    changeCheeses(newCheese);
-  };
-  // Drink change handler
-  const handleDrinksChange = (drink: any) => {
-    let newDrink = drink.title;
-    changeDrinks(newDrink);
-  };
+  const handleMeatsChange = props.onChangeMeat;
+  const handleVegetablesChange = props.onChangeVegetable;
+  const handleCheesesChange = props.onChangeCheese;
+  const handleDrinksChange = props.onChangeDrink;
 
   return (
     <IonAccordionGroup>

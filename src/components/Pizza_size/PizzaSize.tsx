@@ -1,5 +1,4 @@
 import { IonLabel, IonRange } from '@ionic/react';
-import { RangeValue } from '@ionic/core';
 import './PizzaSize.css';
 
 function PizzaSize(props:any) {

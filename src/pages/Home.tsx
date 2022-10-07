@@ -15,7 +15,6 @@ import PizzaSize from "../components/Pizza_size/PizzaSize";
 import PizzaIngredient from "../components/Pizza_ingredient/PizzaIngredient";
 import Command from "../components/Command/Command";
 import { RangeValue } from "@ionic/core";
-import { number } from "prop-types";
 
 const Home: React.FC = () => {
   const title = "Pizza";
@@ -50,7 +49,6 @@ const Home: React.FC = () => {
   const handleSauce = (sauce: any) => {
     let newData = data;
     console.log(sauce);
-    console.log(sauce.value);
 
     newData.sauce = sauce.title;
     setData(newData);
@@ -66,21 +64,21 @@ const Home: React.FC = () => {
   };
 
   // Method to change the meats at the user's choice
-  const changeMeats = (meat: string) => {
+  const handleMeats = (meat: any) => {
     // Copy the current data into a new variable where we will operate all operations in
     let newData = data;
+    meat = meat.title
 
     // If the selected article exists in the array remove it (when user unselect an item) else add it (when user select an item)
-    if (meat) {
-      const index = newData.meats.indexOf(meat);
-      if (index > -1) {
-        // remove the item from the list
-        newData.meats.splice(index, 1);
-      } else {
-        // Add the new item in the list
-        newData.meats.push(meat);
-      }
+    const index = newData.meats.indexOf(meat);
+    if (index > -1) {
+      // remove the item from the list
+      newData.meats.splice(index, 1);
+    } else {
+      // Add the new item in the list
+      newData.meats.push(meat);
     }
+
     console.log(newData.meats);
     // call the setData in order to update the data to reflect the changes made by the user
     setData(newData);
@@ -89,21 +87,21 @@ const Home: React.FC = () => {
   };
 
   // Method to change the vegetables at the user's choice
-  const changeVegetables = (vegetable: string) => {
+  const handleVegetables = (vegetable: any) => {
     // Copy the current data into a new variable where we will operate all operations in
     let newData = data;
+    vegetable = vegetable.title
 
     // If the selected article exists in the array remove it (when user unselect an item) else add it (when user select an item)
-    if (vegetable) {
-      const index = newData.vegetables.indexOf(vegetable);
-      if (index > -1) {
-        // remove the item from the list
-        newData.vegetables.splice(index, 1);
-      } else {
-        // Add the new item in the list
-        newData.vegetables.push(vegetable);
-      }
+    const index = newData.vegetables.indexOf(vegetable);
+    if (index > -1) {
+      // remove the item from the list
+      newData.vegetables.splice(index, 1);
+    } else {
+      // Add the new item in the list
+      newData.vegetables.push(vegetable);
     }
+
     console.log(newData.vegetables);
     // call the setData in order to update the data to reflect the changes made by the user
     setData(newData);
@@ -112,21 +110,21 @@ const Home: React.FC = () => {
   };
 
   // Method to change the cheeses at the user's choice
-  const changeCheeses = (cheese: string) => {
+  const handleCheeses = (cheese: any) => {
     // Copy the current data into a new variable where we will operate all operations in
     let newData = data;
+    cheese = cheese.title
 
     // If the selected article exists in the array remove it (when user unselect an item) else add it (when user select an item)
-    if (cheese) {
-      const index = newData.cheeses.indexOf(cheese);
-      if (index > -1) {
-        // remove the item from the list
-        newData.cheeses.splice(index, 1);
-      } else {
-        // Add the new item in the list
-        newData.cheeses.push(cheese);
-      }
+    const index = newData.cheeses.indexOf(cheese);
+    if (index > -1) {
+      // remove the item from the list
+      newData.cheeses.splice(index, 1);
+    } else {
+      // Add the new item in the list
+      newData.cheeses.push(cheese);
     }
+
     console.log(newData.cheeses);
     // call the setData in order to update the data to reflect the changes made by the user
     setData(newData);
@@ -135,21 +133,21 @@ const Home: React.FC = () => {
   };
 
   // Method to change the drinks at the user's choice
-  const changeDrinks = (drink: string) => {
+  const handleDrinks = (drink: any) => {
     // Copy the current data into a new variable where we will operate all operations in
     let newData = data;
+    drink = drink.title
 
     // If the selected article exists in the array remove it (when user unselect an item) else add it (when user select an item)
-    if (drink) {
-      const index = newData.drinks.indexOf(drink);
-      if (index > -1) {
-        // remove the item from the list
-        newData.drinks.splice(index, 1);
-      } else {
-        // Add the new item in the list
-        newData.drinks.push(drink);
-      }
+    const index = newData.drinks.indexOf(drink);
+    if (index > -1) {
+      // remove the item from the list
+      newData.drinks.splice(index, 1);
+    } else {
+      // Add the new item in the list
+      newData.drinks.push(drink);
     }
+
     console.log(newData.drinks);
     // call the setData in order to update the data to reflect the changes made by the user
     setData(newData);
@@ -176,18 +174,18 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
+        {/*PIZZA COMPONENTS */}
         <PizzaSauce onChangeSauce={handleSauce} />
-
         <PizzaSize onChangeSize={handleSize} />
-
         <PizzaIngredient
-          onChangeMeat={changeMeats}
-          onChangeVegetable={changeVegetables}
-          onChangeCheese={changeCheeses}
-          onChangeDrink={changeDrinks}
+          onChangeMeat={handleMeats}
+          onChangeVegetable={handleVegetables}
+          onChangeCheese={handleCheeses}
+          onChangeDrink={handleDrinks}
         />
-
         <Command data={data} />
+        {/* END PIZZA COMPONENTS */}
+
       </IonContent>
     </IonPage>
   );
