@@ -1,11 +1,12 @@
-import React from 'react';
 import { IonLabel, IonRange } from '@ionic/react';
 import { RangeValue } from '@ionic/core';
 import './PizzaSize.css';
 
 function PizzaSize(props:any) {
+  // Get the function change size passed from the parent component
   const onChangeSize = props.onChangeSize;
-  // onIonChange={({ detail }) => changeSize(detail.value)}
+
+  // Size change handler
   const handleSizeChange = (size:RangeValue) => {
     onChangeSize(size);
   }

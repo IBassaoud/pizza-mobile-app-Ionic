@@ -9,61 +9,63 @@ import {
 import "./Command.css";
 
 function Command(props:any) {
+  // Retrieves all data passed from the parent component to display interactively as changes are made in the command
     let size = props.data.size;
     let sauce = props.data.sauce;
-    let viandesCommande = props.data.viandes;
-    let legumesCommande = props.data.legumes;
-    let fromagesCommande = props.data.fromages;
-    let boissonsCommande = props.data.boissons;
+    let meatsCommand = props.data.meats;
+    let vegetablesCommand = props.data.vegetables;
+    let cheesesCommand = props.data.cheeses;
+    let drinksCommand = props.data.drinks;
+    
   return (
     <div className="command-container">
-      <IonHeader className="header-command">Votre commande :</IonHeader>
+      <IonHeader className="header-command">Votre Commande :</IonHeader>
 
       <IonItem lines="full" class="item-has-focus ion-touched">
         <IonLabel position="stacked">Sauce</IonLabel>
-        <IonInput disabled={true}>{sauce}</IonInput>
+        <IonInput readonly>{sauce}</IonInput>
       </IonItem>
 
       <IonItem lines="full" class="item-has-focus ion-touched">
         <IonLabel position="stacked">
           Taille de la Pizza :
         </IonLabel>
-        <IonInput disabled={true}> {size} cm</IonInput>
+        <IonInput readonly> {size} cm</IonInput>
       </IonItem>    
 
-      <IonItem lines="full" class="item-has-focus ion-touched">
+      <IonItem lines="full" class="item-has-focus">
         <IonLabel position="stacked">
           Viandes :
         </IonLabel>
-        <IonInput disabled={true}>{viandesCommande.map((viande:string) => {return `${viande} `})}</IonInput>
+        <IonInput readonly>{meatsCommand.map((meat:string) => {return `${meat} `})}</IonInput>
       </IonItem>    
 
-      <IonItem lines="full" class="item-has-focus ion-touched">
+      <IonItem lines="full" class="item-has-focus">
         <IonLabel position="stacked">
           Légumes :
         </IonLabel>
-        <IonInput disabled={true}>{legumesCommande.map((legume:string) => {return `${legume} `})}</IonInput>
+        <IonInput readonly>{vegetablesCommand.map((vegetable:string) => {return `${vegetable} `})}</IonInput>
       </IonItem>    
 
-      <IonItem lines="full" class="item-has-focus ion-touched">
+      <IonItem lines="full" class="item-has-focus">
         <IonLabel position="stacked">
           Fromages :
         </IonLabel>
-        <IonInput disabled={true}>{fromagesCommande.map((fromage:string) => {return `${fromage} `})}</IonInput>
+        <IonInput readonly>{cheesesCommand.map((cheese:string) => {return `${cheese} `})}</IonInput>
       </IonItem>    
 
-      <IonItem lines="full" class="item-has-focus ion-touched">
+      <IonItem lines="full" class="item-has-focus">
         <IonLabel position="stacked">
           Boissons :
         </IonLabel>
-        <IonInput disabled={true}>{boissonsCommande.map((boisson:string) => {return `${boisson} `})}</IonInput>
+        <IonInput readonly>{drinksCommand.map((drink:string) => {return `${drink} `})}</IonInput>
       </IonItem>    
 
-      <IonItem lines="full" class="item-has-focus ion-touched ion-invalid">
+      <IonItem lines="full" class="item-has-focus ion-invalid">
         <IonLabel position="stacked">
           Total :
         </IonLabel>
-        <IonInput disabled={true}> €</IonInput>
+        <IonInput readonly> €</IonInput>
       </IonItem>
 
       <IonButton className="bouton_item" expand="full">
