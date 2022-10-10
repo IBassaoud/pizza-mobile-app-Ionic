@@ -6,17 +6,17 @@ function PizzaSauce(props: any) {
   const handleSauceChange = props.onChangeSauce;
 
   return (
-    <IonSegment value="default">
+    <IonSegment>
       <IonSegmentButton
         title="Sauce Tomate"
-        value="Hello"
-        onClick={(detail) => handleSauceChange(detail.target)}
+        onClick={({target}) => {handleSauceChange(target)}}
       >
-        <IonLabel className="-label-type">Base Tomate</IonLabel>
+        <IonLabel className="label-type">Base Tomate</IonLabel>
       </IonSegmentButton>
       <IonSegmentButton
         title="Sauce Blanche"
-        onClick={(detail) => handleSauceChange(detail.target)}
+
+        onClick={({target}) => {handleSauceChange(target)}}
       >
         <IonLabel className="label-type">Base Blanche</IonLabel>
       </IonSegmentButton>

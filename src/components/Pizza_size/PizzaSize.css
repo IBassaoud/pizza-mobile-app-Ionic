@@ -55,4 +55,9 @@ ion-range::part(tick) {
 
   .range-label {
     padding-left:1em;
+    margin-top: 5em;
+  }
+
+  .container_pizza-size {
+    margin-top:10px;
   }
