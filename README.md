@@ -9,7 +9,7 @@ Check out the deployed app demo [here](https://pizza-bassaoud.netlify.app/home).
 </div>
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/your/repo.git`
+1. Clone the repository: `https://github.com/IBassaoud/pizza-mobile-app-Ionic.git`
 2. Install dependencies: `npm install`
 
 ## Usage
